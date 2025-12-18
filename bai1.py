@@ -1,10 +1,14 @@
-s = input("Nhập chuỗi: ")
-chu_cai = chu_so = dac_biet = 0
-for char in s:
-    if 'a' <= char <= 'z' or 'A' <= char <= 'Z':
-        chu_cai += 1
-    elif '0' <= char <= '9':
-        chu_so += 1
+chuoi = input("Nhập vào 1 chuỗi: ")
+
+
+chu,so,dac_biet = 0,0,0
+for i in chuoi:
+    if('a' <= i <= 'z') or ('A' <= i <= 'Z'):
+      chu += 1
+    elif '0' <= i <= '9':
+       so += 1
     else:
-        dac_biet += 1
-print(f"Chữ cái: {chu_cai}, Chữ số: {chu_so}, Đặc biệt: {dac_biet}")
+       dac_biet += 1
+print("Chữ cái:", chu)
+print("Chữ số:", so)
+print("Ký tự đặc biệt:", dac_biet)

@@ -1,5 +1,15 @@
-d = {'a': 1, 'b': 2, 'c': 3}
+n = int(input("Nhập số lượng phần tử trong dictionary: "))
+
+d = {}
+for i in range(n):
+    key = input("Nhập key: ")
+    value = input("Nhập value: ")
+    d[key] = value
+
 dao_nguoc = {}
-for k, v in d.items():
-    dao_nguoc[v] = k
-print(dao_nguoc)
+for key in d:
+    dao_nguoc[d[key]] = key
+
+print("Dictionary sau khi đảo ngược:")
+for key in dao_nguoc:
+    print(key, ":", dao_nguoc[key])

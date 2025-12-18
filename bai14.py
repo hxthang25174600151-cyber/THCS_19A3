@@ -1,20 +1,71 @@
-A = {1, 2, 3, 4}
-B = {3, 4, 5, 6}
+chuoiA = input("Nhập tập A: ")
+chuoiB = input("Nhập tập B: ")
 
-giao = set()
+A, B = [], []
+so = ""
+for i in chuoiA + " ":
+    if i != " ":
+        so += i
+    else:
+        if so != "":
+            A.append(int(so))
+            so = ""
+so = ""
+for i in chuoiB + " ":
+    if i != " ":
+        so += i
+    else:
+        if so != "":
+            B.append(int(so))
+            so = ""
+
+# Hợp
+hop = []
+for x in A + B:
+    co = False
+    for y in hop:
+        if x == y:
+            co = True
+            break
+    if not co:
+        hop.append(x)
+
+# Giao
+giao = []
 for x in A:
-    if x in B: giao.add(x)
+    for y in B:
+        if x == y:
+            co = False
+            for z in giao:
+                if x == z:
+                    co = True
+                    break
+            if not co:
+                giao.append(x)
 
-hieu_A_B = set()
+# Hiệu A - B
+hieu_A_B = []
 for x in A:
-    if x not in B: hieu_A_B.add(x)
+    co = False
+    for y in B:
+        if x == y:
+            co = True
+            break
+    if not co:
+        hieu_A_B.append(x)
 
-hieu_B_A = set()
+# Hiệu B - A
+hieu_B_A = []
 for x in B:
-    if x not in A: hieu_B_A.add(x)
+    co = False
+    for y in A:
+        if x == y:
+            co = True
+            break
+    if not co:
+        hieu_B_A.append(x)
 
-hop = set()
-for x in A: hop.add(x)
-for x in B: hop.add(x)
-
-print(f"A-B: {hieu_A_B}, B-A: {hieu_B_A}, Giao: {giao}, Hợp: {hop}")
+print("Hợp:", hop)
+print("Giao:", giao)
+print("A - B:", hieu_A_B)
+print("B - A:", hieu_B_A)

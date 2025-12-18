@@ -1,10 +1,21 @@
-lst = [1, 2, 3, 4, 5]
-k = int(input("Nhập k: "))
-n = 0
-for _ in lst: n += 1
-k = k % n
-ket_qua = [0] * n
+n = int(input("Nhập kích thước ma trận vuông: "))
+
+mat = []
 for i in range(n):
-    moi = (i + k) % n
-    ket_qua[moi] = lst[i]
-print("List sau khi dịch:", ket_qua)
+    dong = []
+    chuoi = input("Nhập hàng thứ " + str(i+1) + ": ")
+    so = ""
+    for j in chuoi + " ":
+        if j != " ":
+            so += j
+        else:
+            if so != "":
+                dong.append(int(so))
+                so = ""
+    mat.append(dong)
+
+tong = 0
+for i in range(n):
+    tong += mat[i][n-1-i]
+
+print("Tổng đường chéo phụ:", tong)

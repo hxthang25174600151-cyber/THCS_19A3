@@ -1,10 +1,22 @@
-lst = [1, 2, 3, 4, 5]
-k = int(input("Nhập k: "))
-n = 0
-for _ in lst: n += 1
-k = k % n
-ket_qua = [0] * n
+chuoi = input("Nhập danh sách số nguyên: ")
+k = int(input("Nhập số vị trí dịch chuyển: "))
+
+ds = []
+so = ""
+for i in chuoi + " ":
+    if i != " ":
+        so += i
+    else:
+        if so != "":
+            ds.append(int(so))
+            so = ""
+
+n = len(ds)
+k = k % n   # tránh k quá lớn
+
+ket_qua = [0]*n
 for i in range(n):
-    moi = (i + k) % n
-    ket_qua[moi] = lst[i]
-print("List sau khi dịch:", ket_qua)
+    new_index = (i + k) % n
+    ket_qua[new_index] = ds[i]
+
+print("Danh sách sau khi dịch chuyển:", ket_qua)

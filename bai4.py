@@ -1,22 +1,24 @@
-s = input("Nhập chuỗi: ")
-ket_qua = ""
-tam = ""
-# Loại bỏ khoảng trắng đầu/cuối và chuẩn hóa giữa
-dang_co_khoang_trang = True
-for char in s:
-    if char != " ":
-        ket_qua += char
-        dang_co_khoang_trang = False
-    elif not dang_co_khoang_trang:
-        ket_qua += " "
-        dang_co_khoang_trang = True
-# Xóa khoảng trắng thừa ở cuối nếu có
-s_final = ""
-length = 0
-for _ in ket_qua: length += 1
-if length > 0 and ket_qua[length-1] == " ":
-    for i in range(length - 1):
-        s_final += ket_qua[i]
+chuoi = input("Nhập danh sách số nguyên: ")
+
+ds = []
+so = ""
+for i in chuoi + " ":
+    if i != " ":
+        so += i
+    else:
+        if so != "":
+            ds.append(int(so))
+            so = ""
+
+max1 = max2 = -999999999
+for x in ds:
+    if x > max1:
+        max2 = max1
+        max1 = x
+    elif x > max2 and x != max1:
+        max2 = x
+
+if max2 == -999999999:
+    print("Không có giá trị lớn thứ hai")
 else:
-    s_final = ket_qua
-print(f"Chuỗi sau khi xử lý: '{s_final}'")
+    print("Giá trị lớn thứ hai là:", max2)

@@ -1,21 +1,28 @@
-matrix = [[1, 0, 0], [0, 1, 0], [0, 0, 1]]
-is_square = True
-row_count = len(matrix)
-for row in matrix:
-    col_count = 0
-    for _ in row: col_count += 1
-    if col_count != row_count:
-        is_square = False
-        break
+n = int(input("Nhập kích thước ma trận vuông: "))
 
-if not is_square:
-    print("Không phải ma trận vuông")
+mat = []
+for i in range(n):
+    dong = []
+    chuoi = input("Nhập hàng thứ " + str(i+1) + ": ")
+    so = ""
+    for j in chuoi + " ":
+        if j != " ":
+            so += j
+        else:
+            if so != "":
+                dong.append(int(so))
+                so = ""
+    mat.append(dong)
+
+don_vi = True
+for i in range(n):
+    for j in range(n):
+        if i == j and mat[i][j] != 1:
+            don_vi = False
+        elif i != j and mat[i][j] != 0:
+            don_vi = False
+
+if don_vi:
+    print("Ma trận đơn vị")
 else:
-    is_unit = True
-    for i in range(row_count):
-        for j in range(row_count):
-            if i == j:
-                if matrix[i][j] != 1: is_unit = False
-            else:
-                if matrix[i][j] != 0: is_unit = False
-    print("Ma trận đơn vị:" if is_unit else "Không phải ma trận đơn vị")
+    print("Không phải ma trận đơn vị")

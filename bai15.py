@@ -1,13 +1,27 @@
-t = (1, 2, 3, 4, 5, 6)
-chan = []
-le = []
-tong_chan = tong_le = 0
-for x in t:
+chuoi = input("Nhập tuple số nguyên: ")
+
+ds = []
+so = ""
+for i in chuoi + " ":
+    if i != " ":
+        so += i
+    else:
+        if so != "":
+            ds.append(int(so))
+            so = ""
+
+tuple_chan = ()
+tuple_le = ()
+tong_chan = 0
+tong_le = 0
+
+for x in ds:
     if x % 2 == 0:
-        chan.append(x)
+        tuple_chan += (x,)
         tong_chan += x
     else:
-        le.append(x)
+        tuple_le += (x,)
         tong_le += x
-print(f"Tuple chẵn: {tuple(chan)}, Tổng: {tong_chan}")
-print(f"Tuple lẻ: {tuple(le)}, Tổng: {tong_le}")
+
+print("Tuple chẵn:", tuple_chan, "Tổng:", tong_chan)
+print("Tuple lẻ:", tuple_le, "Tổng:", tong_le)

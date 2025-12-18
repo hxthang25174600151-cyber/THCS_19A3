@@ -1,6 +1,16 @@
-d = {'A': 70, 'B': 40, 'C': 55, 'D': 10}
+n = int(input("Nhập số lượng phần tử trong dictionary: "))
+
+d = {}
+for i in range(n):
+    key = input("Nhập key: ")
+    value = int(input("Nhập value: "))
+    d[key] = value
+
 ket_qua = {}
-for k, v in d.items():
-    if v > 50:
-        ket_qua[k] = v
-print("Dictionary sau khi lọc:", ket_qua)
+for key in d:
+    if d[key] > 50:
+        ket_qua[key] = d[key]
+
+print("Các cặp key-value thỏa mãn điều kiện (value > 50):")
+for key in ket_qua:
+    print(key, ":", ket_qua[key])
